@@ -1,18 +1,12 @@
 import { z } from "zod";
 
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
-
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
-
 export const postsRouter = createTRPCRouter({
-  getAll: publicProcedure.query(async ({ ctx }) => {
-    const posts = await ctx.prisma.post.findMany({
-      take: 100,
-      orderBy: [{ createdAt: "desc" }],
-    });
-
+  getAll: publicProcedure.query(({ ctx }) => {
+    return ctx.prisma.post.findMany();
+  }),
+});
 
 // export const postRouter = createTRPCRouter({
 //   getAll: publicProcedure
