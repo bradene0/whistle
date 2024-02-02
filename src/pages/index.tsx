@@ -1,5 +1,6 @@
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
 //import Link from "next/link";
 import { api } from "~/utils/api";
 
@@ -24,6 +25,11 @@ export default function Home() {
             Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
           </h1>
           <div>{!user && <SignInButton/>}{!!user && <SignOutButton/>}</div>
+        </div>
+        <div>
+          {data?.map((post: { id: Key | null | undefined; content: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }) => (
+            <div key={post.id}>{post.content}</div>
+          ))}
         </div>
       </main>
     </>
