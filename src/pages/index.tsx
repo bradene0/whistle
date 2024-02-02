@@ -26,7 +26,7 @@ export default function Home() {
           <div>{!user && <SignInButton/>}{!!user && <SignOutButton/>}</div>
         </div>
         <div>
-          {data?.map((post) => (
+          {data?.map((post: any) => (
             <div key={post.id}>{post.content}</div>
           ))}
         </div>
