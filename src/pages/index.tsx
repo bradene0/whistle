@@ -1,6 +1,5 @@
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
 //import Link from "next/link";
 import { api } from "~/utils/api";
 
@@ -27,7 +26,7 @@ export default function Home() {
           <div>{!user && <SignInButton/>}{!!user && <SignOutButton/>}</div>
         </div>
         <div>
-          {data?.map((post: { id: Key | null | undefined; content: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }) => (
+          {data?.map((post) => (
             <div key={post.id}>{post.content}</div>
           ))}
         </div>
