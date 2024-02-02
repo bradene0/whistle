@@ -1,4 +1,5 @@
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { Post } from "@prisma/client";
 import Head from "next/head";
 //import Link from "next/link";
 import { api } from "~/utils/api";
@@ -26,7 +27,7 @@ export default function Home() {
           <div>{!user && <SignInButton/>}{!!user && <SignOutButton/>}</div>
         </div>
         <div>
-          {data?.map((post: any) => (
+          {data?.map((post: Post) => (
             <div key={post.id}>{post.content}</div>
           ))}
         </div>
