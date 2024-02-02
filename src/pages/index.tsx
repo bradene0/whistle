@@ -35,9 +35,9 @@ export default function Home() {
           <div>{!user && <SignInButton/>}{!!user && <SignOutButton/>}</div>
         </div>
         <div>
-          {data?.map((post: Post) => (
-            <div key={post.id}>{post.content}</div>
-          ))}
+        {(data as Post[] | undefined)?.map((post) => (
+        <div key={post.id}>{post.content}</div>
+      ))}
         </div>
       </main>
     </>
