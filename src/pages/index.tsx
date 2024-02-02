@@ -1,8 +1,16 @@
 import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import { Post } from "@prisma/client";
+//import { Post } from "@prisma/client";
 import Head from "next/head";
 //import Link from "next/link";
 import { api } from "~/utils/api";
+
+interface Post {
+  id: string;
+  createdAt: Date; // Adjusted to Date type based on DateTime in your schema
+  content: string;
+  authorId: string;
+}
+
 
 export default function Home() {
   //const hello = api.post.hello.useQuery({ text: "from tRPC" });
