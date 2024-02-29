@@ -3,7 +3,7 @@ import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
 //import Link from "next/link";
 import { api } from "~/utils/api";
-
+//todo fix envs
 interface Post {
   id: string;
   createdAt: Date; // Adjusted to Date type based on DateTime in your schema
